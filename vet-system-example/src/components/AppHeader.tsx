@@ -5,12 +5,11 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 
 interface AppHeaderProps {
-  title: string;
   showBack?: boolean;
 }
 
 const AppHeader: React.FC<AppHeaderProps> = (props) => {
-  const { title, showBack } = props;
+  const { showBack } = props;
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -18,7 +17,7 @@ const AppHeader: React.FC<AppHeaderProps> = (props) => {
       {/** Main Header */}
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static">
-          <Toolbar>
+          <Toolbar variant="dense">
             <IconButton
               size="large"
               edge="start"
@@ -43,7 +42,7 @@ const AppHeader: React.FC<AppHeaderProps> = (props) => {
               </IconButton>
             )}
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              {title}
+              {/* {title} */}
             </Typography>
           </Toolbar>
         </AppBar>

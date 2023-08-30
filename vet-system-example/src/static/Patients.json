@@ -1,0 +1,66 @@
+[
+    {
+        "species": "dog",
+        "patient_name": "Kiwi",
+        "sex": "Female",
+        "intact": "Fixed",
+        "owner_primary": {
+            "first_name": "Megan",
+            "last_name": "Kennemore",
+            "phone_one": "6789385680",
+            "email": "megkennemore@gmail.com"
+        },
+        "records": []
+    },
+    {
+        "species": "cat",
+        "patient_name": "Queso",
+        "sex": "Male",
+        "intact": "Fixed",
+        "owner_primary": {
+            "first_name": "Pam",
+            "last_name": "Kennemore",
+            "phone_one": "4045555555",
+            "email": "example_email@gmail.com"
+        },
+        "owner_secondary": {
+            "first_name": "Megan",
+            "last_name": "Kennemore",
+            "phone_one": "6789385680",
+            "email": "megkennemore@gmail.com"
+        },
+        "records": []
+    },
+    {
+        "species": "cat",
+        "patient_name": "Olive",
+        "sex": "Female",
+        "intact": "Fixed",
+        "owner_primary": {
+            "first_name": "Pam",
+            "last_name": "Kennemore",
+            "phone_one": "4045555555",
+            "email": "example_email@gmail.com"
+        },
+        "owner_secondary": {
+            "first_name": "Megan",
+            "last_name": "Kennemore",
+            "phone_one": "6789385680",
+            "email": "megkennemore@gmail.com"
+        },
+        "records": []
+    },
+    {
+        "species": "dog",
+        "patient_name": "Mona",
+        "sex": "Female",
+        "intact": "Intact",
+        "owner_primary": {
+            "first_name": "Kate",
+            "last_name": "Example",
+            "phone_one": "5555555555",
+            "email": "example_email@gmail.com"
+        },
+        "records": []
+    }
+]

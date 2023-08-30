@@ -1,12 +1,16 @@
-import { Container } from '@mui/material';
+import { Box } from '@mui/material';
 import { BrowserRouter } from 'react-router-dom';
 import PageRoutes from './PageRoutes';
+import AppHeader from './components/AppHeader';
 
 function App() {
   return (
-    <BrowserRouter>
-      <PageRoutes />
-    </BrowserRouter>
+    <Box>
+      <AppHeader />
+      <BrowserRouter>
+        <PageRoutes />
+      </BrowserRouter>   
+    </Box>
   );
 }
 
