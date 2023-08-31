@@ -26,6 +26,7 @@ export const getIntactLanguage = (patient: Patient) => {
 };
 
 export interface Patient {
+    patient_id: string;
     species: string;
     sex: PatientSex;
     intact: PatientIntact;
