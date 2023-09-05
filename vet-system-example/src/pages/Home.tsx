@@ -1,13 +1,12 @@
 import { Box, Container } from "@mui/material";
-import AppHeader from "../components/AppHeader";
 
 const Home: React.FC = () => {
   return (
-    <Container aria-label="main-content" disableGutters>
+    <Box component="main" sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - 240px)` } }}>
       {/**
        * Put whatever I think should go on the homepage here
        */}
-    </Container>
+    </Box>
   )
 };
 

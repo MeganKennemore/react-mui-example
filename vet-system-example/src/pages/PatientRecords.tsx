@@ -17,7 +17,7 @@ const PatientRecords: React.FC = () => {
   }, [patientData]);
   
   return (
-    <Container disableGutters>
+    <Box component="main" sx={{ flexGrow: 1, p: 3, paddingTop: 6, width: { xs: "100%", md: `calc(100% - 240px)` } }}>
       <Container className="filter-card-holder">
         <Card>Search filters area</Card>
       </Container>
@@ -83,7 +83,7 @@ const PatientRecords: React.FC = () => {
           )}
         </List>
       </Box>
-    </Container>
+    </Box>
   );
 };
 
