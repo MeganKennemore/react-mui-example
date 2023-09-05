@@ -1,5 +1,5 @@
 import { Box } from '@mui/material';
-import { BrowserRouter, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import PageRoutes from '../../PageRoutes';
 import AppHeader from '../../components/AppHeader';
 import { useAppSelector } from '../../store/hooks';
@@ -14,7 +14,6 @@ function App() {
   useEffect(() => {
     if (loggedInUser === undefined && pathname !== "/login") {
       navigate("/login");
-      //window.location.reload();  
     }
   }, [loggedInUser])
 

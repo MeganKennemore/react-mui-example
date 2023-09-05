@@ -1,13 +1,10 @@
-import { Box, Button, Container, FormControl, Grid, IconButton, InputAdornment, InputLabel, OutlinedInput, Paper, TextField, Typography } from "@mui/material";
+import { Box, Button, FormControl, Grid, IconButton, InputAdornment, InputLabel, OutlinedInput, Paper, TextField, Typography } from "@mui/material";
 import "./pages-css/Login.css";
 import { useState } from "react";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { loginAttempted } from "../util/LoginHelper";
-import { filterUsersByUsername } from "../api/UsersApi";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
-import { selectLoggedIn, setLoggedIn, setLoggedInUser } from "../features/app/AppSlice";
-import history from "history/browser";
-import { Navigate, redirect, useNavigate } from "react-router-dom";
+import { selectLoggedIn } from "../features/app/AppSlice";
+import { Navigate, useNavigate } from "react-router-dom";
 import { login } from "../features/app/AppActions";
 
 const Login: React.FC = () => {
@@ -53,39 +50,16 @@ const Login: React.FC = () => {
   };
 
   const onSubmit = (e: any) => {
-/*     const filteredUsers = filterUsersByUsername(userName);
-  if (filteredUsers.length === 0 || filteredUsers.length > 1) {
-    setInvalidUserError(true);
-  } else if (filteredUsers[0].username === userName && filteredUsers[0].password === password) {
-    dispatch(setLoggedInUser(filteredUsers[0])).then(() =>{
-      dispatch(setLoggedIn()).then(() =>
+    e.preventDefault();
+    dispatch(login(userName, password)).then(() => {
+      if (invalidUserError) {
         setInvalidUserError(false);
-        navigate("/home");
-        window.location.reload();
-      })
+      }
+      navigate("/home");
     })
-  } else {
-    setInvalidUserError(true);
-  } */
-  e.preventDefault();
-  dispatch(login(userName, password)).then(() => {
-    //navigate("/home").then(() => {
-
-   // });
-    //window.location.reload();
-    //history.push("/home").then(())
-    navigate("/home");
-    //window.location.reload();
-  })
-  .catch(() => {
-    setInvalidUserError(true);
-  });
-  /* if (!val) {
-    
-  } else {
-    setInvalidUserError(false);
-  }
-}) */
+    .catch(() => {
+      setInvalidUserError(true);
+    });
   };
 
   if (isLoggedIn) {

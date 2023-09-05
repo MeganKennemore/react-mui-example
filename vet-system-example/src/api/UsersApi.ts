@@ -12,10 +12,8 @@ export const filterUsersByUsername = (username: string) => {
     });
     if (filteredUsers.length > 0) {
       resolve(filteredUsers);
-      //return filteredUsers;
     } else {
-      reject("No users with that username found")
-      //return ("No users with that name found")
+      reject("No users with that username found");
     }
   });
 };
