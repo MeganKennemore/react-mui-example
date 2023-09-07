@@ -8,11 +8,14 @@ const PageRoutes: React.FC = () => {
 
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/">
+        <Route path="home" element={<Home />} />
+        <Route path="patient-records">
+          <Route path="" element={<PatientRecords />} />
+          <Route path="patient/:patientId" element={<PatientPage />} />
+        </Route>     
+      </Route>
       <Route path="/login" element={<Login />} />
-      <Route path="/home" element={<Home />} />
-      <Route path="/patient-records" element={<PatientRecords />}/>
-      <Route path="/patient-records/patient-:patientId" element={<PatientPage />} />
     </Routes>
   )
 };

@@ -5,36 +5,10 @@ import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import SettingsIcon from '@mui/icons-material/Settings';
 import LogoutIcon from '@mui/icons-material/Logout';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import { Link } from "react-router-dom";
-import { useAppSelector } from "../store/hooks";
+import { Link, useNavigate } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { selectLoggedInUser } from "../features/app/AppSlice";
-const menuItems = [
-  {
-    text: "Home",
-    icon: <HomeIcon />,
-    url: "/home",
-  },
-  {
-    text: "Patients",
-    icon: <PetsIcon />,
-    url: "/patient-records",
-  },
-  {
-    text: "Appointments",
-    icon: <CalendarMonthIcon />,
-    url: "",
-  },
-  {
-    text: "Settings",
-    icon: <SettingsIcon />,
-    url: "/settings",
-  },
-  {
-    text: "Logout",
-    icon: <LogoutIcon />,
-    url: "",
-   },
-];
+import { logout } from "../features/app/AppActions";
 
 interface MenuProps {
   isOpen: boolean;
@@ -45,12 +19,50 @@ interface MenuProps {
 const Menu: React.FC<MenuProps> = (props) => {
   const { isOpen, setIsOpen, display } = props;
   const theme = useTheme();
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const loggedInUser = useAppSelector(selectLoggedInUser);
   const isLargerDevice = useMediaQuery((theme: Theme) => theme.breakpoints.up('md'));
   const toggleDrawer = (toggle: boolean) => () => {
     setIsOpen(toggle);
   };
-  
+
+  const logoutClick = () => {
+    dispatch(logout).then(() => {
+      navigate("/");
+    }).catch(() => {
+      // ¯\_(ツ)_/¯
+    })
+  };
+
+  const menuItems = [
+    {
+      text: "Home",
+      icon: <HomeIcon />,
+      url: "/home",
+    },
+    {
+      text: "Patients",
+      icon: <PetsIcon />,
+      url: "/patient-records",
+    },
+    {
+      text: "Appointments",
+      icon: <CalendarMonthIcon />,
+      url: "",
+    },
+    {
+      text: "Settings",
+      icon: <SettingsIcon />,
+      url: "/settings",
+    },
+    {
+      text: "Logout",
+      icon: <LogoutIcon />,
+      action: logoutClick
+     },
+  ];
+
   return (
     <Box
       component="nav"
@@ -85,17 +97,29 @@ const Menu: React.FC<MenuProps> = (props) => {
         </div>
         <List disablePadding>
           {menuItems.map((item, index) => {
+            if (item.url) {
+              return (
+                <Link key={`menu-item-${item.text}-${index}`} to={item.url} style={{ color: "inherit", textDecoration: "none" }}>
+                  <ListItem disablePadding>
+                    <ListItemButton>
+                      <ListItemIcon>
+                        {item.icon}
+                      </ListItemIcon>
+                      <ListItemText primary={item.text}/>
+                    </ListItemButton>
+                  </ListItem>
+                </Link>
+              );
+            }
             return (
-              <Link to={item.url} style={{ color: "inherit", textDecoration: "none" }}>
-                <ListItem key={`menu-item-${item.text}-${index}`} disablePadding>
-                  <ListItemButton>
-                    <ListItemIcon>
-                      {item.icon}
-                    </ListItemIcon>
-                    <ListItemText primary={item.text}/>
-                  </ListItemButton>
-                </ListItem>
-              </Link>
+              <ListItem key={`menu-item-logout-${index}`} disablePadding>
+                <ListItemButton onClick={item.action}>
+                  <ListItemIcon>
+                    {item.icon}
+                  </ListItemIcon>
+                  <ListItemText primary={item.text}/>
+                </ListItemButton>
+              </ListItem>
             );
           })}
         </List>

@@ -1,5 +1,5 @@
 import { filterUsersByUsername } from "../../api/UsersApi";
-import { setLoggedInUser } from "./AppSlice";
+import { clearLoggedInUser, setLoggedInUser } from "./AppSlice";
 
 export const login = (username: string, password: string) => (dispatch: any) => {
   return filterUsersByUsername(username).then((result: any) => {
@@ -16,5 +16,12 @@ export const login = (username: string, password: string) => (dispatch: any) => 
   }, (error) => {
     return Promise.reject(error);
   })
+};
 
+export const logout = async () => (dispatch: any) => {
+  return dispatch(clearLoggedInUser()).then((result: any) => {
+    return Promise.resolve();
+  }, (error: any) => {
+    return Promise.reject(error);
+  })
 };
