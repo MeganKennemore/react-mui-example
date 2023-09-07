@@ -35,4 +35,8 @@ export interface Patient {
     owner_secondary?: Owner;
     records: any;
     image?: string;
+    notes: string;
+    birthdate: string;
+    breed?: string;
+    warnings: string[];
 };
