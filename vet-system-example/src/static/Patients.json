@@ -12,7 +12,42 @@
             "phone_one": "6789385680",
             "email": "megkennemore@gmail.com"
         },
-        "records": [],
+        "records": {
+          "patient_id": "001",
+          "appt_record": [
+            {
+                "id": "M61934946",
+                "type": "Exam",
+                "subtype": "Pre Adoption",
+                "date": "5/19/2021 8:18:00 AM",
+                "notes": "Presumed to be spayed per Dr. Kooyman. Scar consistent with spay. If animal shows signs of heat, please contact the Atlanta Humane Society.\n\nBAR on exam. BCS 5/9. MM pink, moist. CRT> 2sec. Oral exam brief, unremarkable. EEN clean and free of discharge.\nCardiothoracic auscultation wnl. Abdomen soft, non-painful. PLN wnl. Integument wnl\n\nRV RR",
+                "patient_id": "001"
+            },
+            {
+                "id": "M61928226",
+                "type": "Exam",
+                "subtype": "Processing",
+                "date": "5/18/2021 3:43:00 PM",
+                "review_date": "6/1/2021 3:43:00 PM",
+                "vitals": "34.00 pound",
+                "notes": "PROCESSING EXAM\n\nEYES: NORMAL_x___ DISCHARGE____ CLOUDY____ ULCERS____ CHERRY EYE____\n\nNOSE: NORMAL_x___ DISCHARGE____ CLEAR____\n\nSKIN: NORMAL_x___ HAIR LOSS____ PUSTULES____ FLEAS/TICKS____ MASS____\n\nBODY: NORMAL_x___ THIN____ OVERWEIGHT____ POSSIBLY PREGNANT____ DEFORMITY____\n\nEARS: NORMAL__x__ DIRTY____ ABNORMAL____ INFECTED____ MITES____\n\nMOUTH: NORMAL__x__ RETAINED____ ULCERS____ TARTAR___",
+                "patient_id": "001"
+            }
+          ],
+          "tests": [{
+            "test_name": "Heartworm Snap Test, Canine",
+            "test_for_condition": "Heartworm",
+            "result": "Negative",
+            "test_date": "5/20/2021 8:38:45 AM",
+            "result_date": "5/20/2021 8:38:45 AM",
+            "re_test_date": "11/20/2021 8:38:00 AM",
+            "test_id": "34a5c736-4e80-11ee-be56-0242ac120002",
+            "appt_id": "M61928226",
+            "patient_id": "001"
+          }],
+          "vaccinations": [],
+          "medical_care": []
+        },
         "notes": "",
         "birthdate": "May 18, 2019",
         "breed": "ABPT mix",
@@ -38,7 +73,13 @@
             "phone_one": "6789385680",
             "email": "megkennemore@gmail.com"
         },
-        "records": [],
+        "records": {
+            "patient_id": "002",
+            "appt_record": [],
+            "tests": [],
+            "vaccinations": [],
+            "medical_care": []
+        },
         "notes": "",
         "birthdate": "December 1, 2012",
         "breed": "American shorthair",
@@ -64,7 +105,13 @@
             "phone_one": "6789385680",
             "email": "megkennemore@gmail.com"
         },
-        "records": [],
+        "records": {
+            "patient_id": "003",
+            "appt_record": [],
+            "tests": [],
+            "vaccinations": [],
+            "medical_care": []
+        },
         "notes": "",
         "birthdate": "November 6, 2012",
         "breed": "American shorthair",
@@ -83,7 +130,13 @@
             "phone_one": "5555555555",
             "email": "example_email@gmail.com"
         },
-        "records": [],
+        "records": {
+            "patient_id": "004",
+            "appt_record": [],
+            "tests": [],
+            "vaccinations": [],
+            "medical_care": []
+        },
         "notes": "",
         "birthdate": "January 1, 2023",
         "breed": "Dachshund / Pit mix?",
