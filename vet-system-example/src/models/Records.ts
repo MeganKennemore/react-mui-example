@@ -32,7 +32,7 @@ export interface Vaccination {
 export interface MedicalCare {
   care: string;
   type: string;
-  doses_or_recurrences: string;
+  doses_or_recurrences?: string;
   for?: string;
   care_date: Date;
   review_date?: Date;
