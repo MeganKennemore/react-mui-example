@@ -1,9 +1,10 @@
-import { Box, CircularProgress, Container, Paper, Typography } from "@mui/material"
+import { Box, CircularProgress, Container, Divider, Grid, Paper, Typography } from "@mui/material"
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Patient } from "../models/Patient";
 import { fetchPatientById } from "../api/PatientsApi";
 import PatientProfile from "../components/PatientProfile";
+import MedicalRecords from "../components/MedicalRecords";
 
 const PatientPage: React.FC = () => {
   const { patientId } = useParams();
@@ -43,14 +44,20 @@ const PatientPage: React.FC = () => {
           {!patient ? (
             <Typography>No patient with this id could be found</Typography>
           ) : (
-            /**
-            * Profile section
-          */
-            <PatientProfile patient={patient}/>
-
-          /**
-            * Medical History Section
-          */ 
+            <Grid container spacing={2}>
+              {/**
+                * Profile section
+              */}
+              <Grid item xs={12}>
+                <PatientProfile patient={patient}/>
+              </Grid>
+              {/**
+                * Medical History Section
+              */ }
+              <Grid container item xs={12}>
+                <MedicalRecords records={patient.records} />
+              </Grid>
+            </Grid>
           )}
         </>
       )}
